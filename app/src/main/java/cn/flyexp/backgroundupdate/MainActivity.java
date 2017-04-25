@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         intent = new Intent(MainActivity.this, DownloadService.class);
 
-        //开启服务 --- 主分支
+        //开启服务 --- 主分支 , 测试
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

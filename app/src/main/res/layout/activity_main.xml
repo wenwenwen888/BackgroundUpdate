@@ -3,27 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context="cn.flyexp.backgroundupdate.MainActivity">
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/bt_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_margin="10dp"
         android:background="@color/colorPrimary"
-        android:text="启动服务"
+        android:text="Dialog下载"
         android:textColor="#FFF" />
 
     <Button
-        android:id="@+id/close"
+        android:id="@+id/bt_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_margin="10dp"
         android:background="@color/colorPrimary"
-        android:text="关闭服务"
+        android:text="Notification下载"
         android:textColor="#FFF" />
 
 </LinearLayout>

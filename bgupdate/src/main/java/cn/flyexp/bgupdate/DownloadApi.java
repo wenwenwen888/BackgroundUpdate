@@ -1,9 +1,9 @@
 package cn.flyexp.bgupdate;
 
 import okhttp3.ResponseBody;
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
+import rx.Observable;
 
 /**
  * Created by Won on 2017/4/25.
@@ -12,6 +12,6 @@ import retrofit2.http.Url;
 public interface DownloadApi {
 
     @GET
-    Call<ResponseBody> downloadFileWithDynamicUrlSync(@Url String fileUrl);
+    Observable<ResponseBody> downloadFile(@Url String fileUrl);
 
 }

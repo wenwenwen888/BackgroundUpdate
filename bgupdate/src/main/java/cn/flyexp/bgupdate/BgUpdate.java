@@ -53,6 +53,10 @@ public class BgUpdate {
 
     /**
      * Dialog更新
+     *
+     * @param context  上下文
+     * @param url      下载链接
+     * @param filePath 文件保存路径
      */
     public static void updateForDialog(Context context, String url, String filePath) {
         TYPE = TYPE_DIALOG;
@@ -63,6 +67,10 @@ public class BgUpdate {
 
     /**
      * Notification更新
+     *
+     * @param context  上下文
+     * @param url      下载链接
+     * @param filePath 文件保存路径
      */
     public static void updateForNotification(Context context, String url, String filePath) {
         TYPE = TYPE_NOTIFICATION;
@@ -126,6 +134,7 @@ public class BgUpdate {
 
     /**
      * 关闭服务
+     * @param context 上下文
      */
     public static void closeService(Context context) {
         if (intent != null && serviceConnection != null) {

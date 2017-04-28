@@ -72,8 +72,9 @@ public class DownloadService extends Service {
 
         /**
          * 开始下载
-         *
-         * @param url 下载url
+         * @param url 下载链接
+         * @param filePath 存储路径
+         * @param type 显示类型
          */
         public void startDownload(String url, String filePath, int type) {
             DownloadService.this.filePath = filePath;

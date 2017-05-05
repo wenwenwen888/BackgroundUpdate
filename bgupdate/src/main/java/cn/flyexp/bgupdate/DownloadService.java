@@ -270,13 +270,16 @@ public class DownloadService extends Service {
      */
     private boolean writeResponseBodyToDisk(ResponseBody body) {
         try {
-            File futureStudioIconFile = new File(filePath);
+            File filepath = new File(filePath);
+            if (!filepath.getParentFile().exists()) {
+                filepath.getParentFile().mkdirs();
+            }
             InputStream inputStream = null;
             OutputStream outputStream = null;
             try {
                 byte[] fileReader = new byte[4096];
                 inputStream = body.byteStream();
-                outputStream = new FileOutputStream(futureStudioIconFile);
+                outputStream = new FileOutputStream(filepath);
                 while (true) {
                     int read = inputStream.read(fileReader);
                     if (read == -1) {

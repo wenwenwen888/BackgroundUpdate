@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.WindowManager;
@@ -314,9 +315,16 @@ public class DownloadService extends Service {
         //会根据用户的数据类型打开android系统相应的Activity。
         Intent intent = new Intent(Intent.ACTION_VIEW);
         //设置intent的数据类型是应用程序application
-        intent.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
-        //为这个新apk开启一个新的activity栈
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //判读版本是否在7.0以上
+        if (Build.VERSION.SDK_INT >= 24) {
+            Uri apkUri = FileProvider.getUriForFile(this, "cn.flyexp.bgupdate.fileprovider", apkfile);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        } else {
+            //为这个新apk开启一个新的activity栈
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
+        }
         //开始安装
         startActivity(intent);
         //关闭旧版本的应用程序的进程

@@ -317,7 +317,7 @@ public class DownloadService extends Service {
         //设置intent的数据类型是应用程序application
         //判读版本是否在7.0以上
         if (Build.VERSION.SDK_INT >= 24) {
-            Uri apkUri = FileProvider.getUriForFile(this, "cn.flyexp.bgupdate.fileprovider", apkfile);
+            Uri apkUri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", apkfile);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
         } else {

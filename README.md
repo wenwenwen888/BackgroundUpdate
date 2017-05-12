@@ -28,7 +28,7 @@ Usage
 
 With Gradle:
 ```groovy
-  compile 'com.wenwenwen888:bgupdate:1.0.2'
+  compile 'com.wenwenwen888:bgupdate:1.0.7'
 ```
 
 
